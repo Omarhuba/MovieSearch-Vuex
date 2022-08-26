@@ -1,6 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <h1>Welcome to Your Vue.js App</h1>
+    <h1>Home</h1>
+    <input type="text" v-model="title" @keydown.enter="searchMovie" placeholder="Movie Name & Enter">
+    <button @click="searchMovie">Search</button>
+    <ul>
+      <li v-for="movie in movies.Search" :key="movie.id">{{movie.Title}}</li>
+    </ul>
   </div>
 </template>
+
+<script>
+export default {
+ name: 'HomeView',
+ data(){return{
+  title: null
+ }},
+ computed:{
+  movies(){
+    return this.$store.state.movies
+  }
+ },
+ methods:{
+  searchMovie(){
+    this.$store.dispatch('movies', this.title)
+    this.title = null
+
+  }
+ },
+ mounted(){
+   this.$store.dispatch('movies')
+ }
+}
+</script>
+
+<style>
+
+</style>
