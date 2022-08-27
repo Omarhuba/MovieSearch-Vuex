@@ -1,8 +1,22 @@
 <template>
-  <div class="movie">
-    <!-- <h1>movie</h1> -->
+  <!-- <div class="movie">
+    <img :src="movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400'"  alt="img">
     {{movie.Title}}
-  </div>
+  </div> -->
+  <div>
+         <div className='movie'>
+            <div>
+              <p>{{movie.Year}}</p>
+            </div>
+            <div>
+              <img :src="movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400'" alt="img" />
+            </div>
+            <div>
+              <span>{{movie.Type}}</span>
+              <h3>{{movie.Title}}</h3>
+            </div>
+          </div>
+    </div>
 </template>
 
 <script>
@@ -14,6 +28,82 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
+  .movie {
+  width: 310px;
+  height: 460px;
+  margin: 1.5rem;
+
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+.movie div:nth-of-type(1) {
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  color: #f9d3b4;
+}
+
+.movie:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05, 1.05);
+}
+
+.movie div:nth-of-type(2) {
+  width: 100%;
+  height: 100%;
+}
+
+.movie div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+}
+
+.movie div:nth-of-type(3) {
+  z-index: 2;
+  background-color: #343739;
+  padding: 16px 24px 24px 24px;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.movie div:nth-of-type(3) span {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #f0f0f0;
+}
+
+.movie div:nth-of-type(3) h3 {
+  margin-top: 5px;
+  font-family: "Roboto Slab", serif;
+  color: #f9d3b4;
+}
+
+.movie:hover div:nth-of-type(2) {
+  height: 100%;
+  opacity: 1;
+}
+
+.movie:hover div:nth-of-type(3) {
+  background-color: transparent;
+}
+
+.movie:hover div:nth-of-type(1) {
+  opacity: 1;
+}
 </style>

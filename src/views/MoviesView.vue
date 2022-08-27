@@ -21,6 +21,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .movies-view{
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 2rem;
+  }
 
 </style>
