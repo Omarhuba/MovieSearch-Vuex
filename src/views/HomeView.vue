@@ -22,6 +22,7 @@
 
 <script>
 import MovieComponent from "../components/MovieComponent.vue";
+// import {mapActions} from 'vuex'
 export default {
   name: "HomeView",
   data() {
@@ -37,7 +38,9 @@ export default {
     },
   },
   methods: {
+    // ...mapActions(['movies']),
     searchMovie() {
+      // ...mapActions(['movies', this.title])
       this.$store.dispatch("movies", this.title);
       this.title = null;
     },

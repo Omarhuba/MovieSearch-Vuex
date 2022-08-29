@@ -23,7 +23,7 @@
 export default {
  name:'MovieComponent',
  props:{
-    movie: String,
+    movie: Object,
  }
 }
 </script>
@@ -96,7 +96,7 @@ export default {
 
 .movie:hover div:nth-of-type(2) {
   height: 100%;
-  opacity: 1;
+  opacity: .2;
 }
 
 .movie:hover div:nth-of-type(3) {
